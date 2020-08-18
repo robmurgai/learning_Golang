@@ -359,9 +359,9 @@ func lesson992() {
 
 func lesson991() {
 
-	message_original := "Hola Estación Especial Internacional"
-	var message_new string
-	var message_new_with_range string
+	messageOriginal := "Hola Estación Especial Internacional"
+	var messageNew string
+	var messageNewWithRange string
 
 	// fmt.Printf("Tip: ASCII String of %c is %[1]v\n", 'o')
 	// fmt.Printf("Tip: ASCII String of %c is %[1]v\n", 'ó')
@@ -370,11 +370,11 @@ func lesson991() {
 	// fmt.Printf("Tip: ASCII String of %c is %[1]v\n", 'z')
 	// fmt.Printf("Tip: ASCII String of %c is %[1]v\n", 'Z')
 
-	fmt.Printf("\nThe original Message was:       %v\n", message_original)
+	fmt.Printf("\nThe original Message was:       %v\n", messageOriginal)
 
 	//fmt.Printf("\n\n (##) O NR\n")
 
-	for _, c := range message_original {
+	for _, c := range messageOriginal {
 		if ('a' <= c && c <= 'm') || ('A' <= c && c <= 'M') {
 			//fmt.Printf(" (%2v) %c", i, c)
 			c += 13
@@ -389,14 +389,14 @@ func lesson991() {
 
 		}
 		//fmt.Printf("%v %c\n", i, c)
-		message_new_with_range += string(c)
+		messageNewWithRange += string(c)
 	}
 
 	//fmt.Printf("Processing the For Loop:\n\n")
 	//fmt.Printf("(##) O N\n")
 
-	for i := 0; i < len(message_original); i++ {
-		c := message_original[i]
+	for i := 0; i < len(messageOriginal); i++ {
+		c := messageOriginal[i]
 		if ('a' <= c && c <= 'm') || ('A' <= c && c <= 'M') {
 			//fmt.Printf("(%2v) %c", i, c)
 			c += 13
@@ -410,18 +410,18 @@ func lesson991() {
 			//fmt.Printf(" %c Unchanged\n ", c)
 
 		}
-		message_new += string(c)
+		messageNew += string(c)
 		//mt.Printf("%c", c)
 	}
 
-	for i := 0; i < len(message_original); i++ {
-		//fmt.Printf("\n(%v) Looks like the charector %c in original message", i, message_original[i])
+	for i := 0; i < len(messageOriginal); i++ {
+		//fmt.Printf("\n(%v) Looks like the charector %c in original message", i, messageOriginal[i])
 		//fmt.Printf("\nIs being turned to %c in new message   ", message_new[i])
 		//fmt.Printf("\nIs being turned to %c in Range message \n", message_new_with_range[i])
 	}
 
-	fmt.Printf("The new with ranges message is: %v\n", message_new_with_range)
-	fmt.Printf("The new message is:             %v\n", message_new)
+	fmt.Printf("The new with ranges message is: %v\n", messageNewWithRange)
+	fmt.Printf("The new message is:             %v\n", messageNew)
 
 }
 
@@ -437,14 +437,14 @@ func lesson991() {
  */
 
 func lesson990() {
-	message_original := "L fdph, L vdz, L frqtxhuhg."
-	var message_new string
+	messageOriginal := "L fdph, L vdz, L frqtxhuhg."
+	var messageNew string
 
-	fmt.Printf("\nThe original Message was:  %v\n", message_original)
+	fmt.Printf("\nThe original Message was:  %v\n", messageOriginal)
 	//fmt.Printf("Processing the For Loop:\n\n")
 
-	for i := 0; i < len(message_original); i++ {
-		c := message_original[i]
+	for i := 0; i < len(messageOriginal); i++ {
+		c := messageOriginal[i]
 		if ('d' <= c && c <= 'z') || ('D' <= c && c <= 'Z') {
 			//fmt.Printf("(%v)Looks like the charector %c", i, c)
 			c -= 3
@@ -458,11 +458,11 @@ func lesson990() {
 			//fmt.Printf(" Leaving at as %c\n", c)
 
 		}
-		message_new += string(c)
+		messageNew += string(c)
 		//fmt.Printf("%c", c)
 	}
 
-	fmt.Printf("The new message is:        %v\n", message_new)
+	fmt.Printf("The new message is:        %v\n", messageNew)
 
 }
 
@@ -537,20 +537,20 @@ func lesson960() {
 ** are the same convenient operation.
 **
 **
-** Let’s suppose, while scanning the heavens for alien communications, the SETI Institute received a transmission with the following message_original:
+** Let’s suppose, while scanning the heavens for alien communications, the SETI Institute received a transmission with the following messageOriginal:
 **
-** message_original := "uv vagreangvbany fcnpr fgngvba"
-** We suspect this message_original is actually English text that was ciphered with ROT13. Call it a hunch. Before you can crack the code, there’s one more thing you need to know. This message_original is 30 characters long, which can be determined with the built-in len function:
+** messageOriginal := "uv vagreangvbany fcnpr fgngvba"
+** We suspect this messageOriginal is actually English text that was ciphered with ROT13. Call it a hunch. Before you can crack the code, there’s one more thing you need to know. This messageOriginal is 30 characters long, which can be determined with the built-in len function:
 **
-** fmt.Println(len(message_original))       1
+** fmt.Println(len(messageOriginal))       1
  */
 
 func lesson950() {
 
-	message_original := "uv vagreangvbany fcnpr fgngvba"
+	messageOriginal := "uv vagreangvbany fcnpr fgngvba"
 
-	for i := 0; i < len(message_original); i++ {
-		c := message_original[i]
+	for i := 0; i < len(messageOriginal); i++ {
+		c := messageOriginal[i]
 		if c >= 'a' && c <= 'z' {
 			c = c + 13
 			if c > 'z' {
