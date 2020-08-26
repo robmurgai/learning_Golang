@@ -10,7 +10,9 @@ import (
 
 func main() {
 	fmt.Printf("######### START ###########\n\n")
-	lession15()
+
+	var planets Planets = []string{"mercury", "earth", "mars", "venus", "saturn", "jupiter", "uranus", "neptue"}
+	planets.terrafrom()
 	fmt.Printf("\n\n########## END ############\n")
 }
 
