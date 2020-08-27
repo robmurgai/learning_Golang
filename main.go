@@ -11,8 +11,8 @@ import (
 func main() {
 	fmt.Printf("######### START ###########\n\n")
 
-	var planets Planets = []string{"mercury", "earth", "mars", "venus", "saturn", "jupiter", "uranus", "neptue"}
-	planets.terrafrom()
+	capacity()
+
 	fmt.Printf("\n\n########## END ############\n")
 }
 
