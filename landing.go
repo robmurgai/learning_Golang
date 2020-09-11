@@ -29,6 +29,14 @@ func landing() {
 	exitOnError(err)
 
 	fmt.Println(string(bytes))
+
+	bytes, err = json.MarshalIndent(locations, "", " ")
+	exitOnError(err)
+
+	fmt.Println()
+	fmt.Println()
+	fmt.Println(string(bytes))
+
 }
 
 // exitOnError prints any errors and exits.

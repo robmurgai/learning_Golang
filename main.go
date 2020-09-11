@@ -8,6 +8,8 @@ import (
 func main() {
 	fmt.Printf("######### START ###########\n\n")
 
+	landing()
+
 	fmt.Printf("\n\n########## END ############\n")
 }
 
