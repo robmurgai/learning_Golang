@@ -4,6 +4,7 @@ import "math"
 
 type world struct {
 	radius float64
+	name   string
 }
 
 // rad converts degrees to radians.
