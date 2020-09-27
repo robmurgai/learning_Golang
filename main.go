@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
@@ -8,22 +9,17 @@ import (
 func main() {
 	fmt.Printf("######### START ###########\n\n")
 
-	//rover
-	var rover rover
+	elysium := location{
+		Name: "Elysium Planitia",
+		Lat:  coordinate{4, 30, 0.0, 'N'},
+		Long: coordinate{135, 54, 0.0, 'E'},
+	}
 
-	//set up the planet rover is on
-	var earth = world{radius: 6371.0} //Earth
-	rover.gps.world = earth
+	//fmt.Printf("%v\n\n", elysium)
 
-	//Create two locations on the world.
-	cary := location{Name: "Cary, NC", Lat: coordinate{d: 35.7915, h: 'N'}, Long: coordinate{d: 78.7811, h: 'W'}}
-	washDC := location{Name: "Washington DC", Lat: coordinate{d: 38.9072, h: 'N'}, Long: coordinate{d: 77.0369, h: 'W'}}
-	fmt.Printf("Distance between %v and %v is: %.2f km as the bird flyes\n", cary.Name, washDC.Name, earth.distance(cary, washDC))
-
-	rover.current = cary
-	rover.desitination = washDC
-
-	fmt.Printf(rover.message())
+	bytes, err := json.MarshalIndent(elysium, "", "  ")
+	exitOnError(err)
+	fmt.Println(string(bytes))
 
 	fmt.Printf("\n\n########## END ############\n")
 }
