@@ -1,4 +1,5 @@
-// First Class Functions: In Go you can assign functions to variables, pass functions to functions, and write functions that return
+// Pracitice Passign funcations as parameters.
+// In Go you can assign functions to variables, pass functions to functions, and write functions that return
 // functions. This ability is defined as Functions being first-class, as in they work in all the places that integers, strings, and other
 // types work.
 // Given the following code:
