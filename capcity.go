@@ -1,8 +1,17 @@
-/**
- ** Experiment: capacity.go
- ** Write a program that uses a loop to continuously append an element to a slice. Print out the capacity of the slice whenever it changes. Does append
- ** always double the capacity when the underlying array runs out of room?
- **/
+// Practice Updating slice Capacity
+// Write a program that uses a loop to continuously append an element to a slice. Print out the capacity of the slice whenever it changes. Does append
+// always double the capacity when the underlying array runs out of room?
+//
+// Use the following in main()
+// func main() {
+//
+// 	fmt.Printf("########## Starting Exercise ##########\n\n")
+//
+// 	capacity()
+//
+// 	fmt.Printf("\n########## Ending Exercise ##########\n")
+//
+// }
 
 package main
 
@@ -12,7 +21,7 @@ func capacity() {
 
 	planetSplice := []string{"Mercury", "Venus", "Earth"}
 
-	fmt.Printf("planetSplice: %v of lenght %v and capacity %v\n\n", planetSplice, len(planetSplice), cap(planetSplice))
+	fmt.Printf("planetSplice: %v of length %v and capacity %v\n\n", planetSplice, len(planetSplice), cap(planetSplice))
 
 	for i, planet := range planetSplice {
 
