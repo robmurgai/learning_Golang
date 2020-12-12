@@ -55,6 +55,11 @@ func getMovieTitles(substr string) []string {
 	apiEndPoint := baseURL + substr + "&page=" + pageString
 	//fmt.Printf("API Endpoint: %v\n", apiEndPoint)
 
+	//Theoretically you are calling the getMovieInfo() function from the address of mr, becuase you want to call the method on the pointer and not the value stored in mr,
+	//If you used the value, it would be a copy.
+	//In golang, instead of the following:
+	// (&mr).getMovieInfo(apiEndPoint)
+	//You may call it as the following and the compiler will automatically make the method call on the address.
 	mr.getMovieInfo(apiEndPoint)
 
 	//Array of Movie Titles, of the size of the titles.
