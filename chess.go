@@ -1,10 +1,6 @@
-package main
-
-import "fmt"
-
 /**
  **
- ** Experiment: chess.go
+ ** Practice workimg with Runes.
  ** Display all the chess pieces at their starting positions using the characters kqrbnp for white pieces along the bottom and
  ** uppercase KQRBNP for black pieces on the top.
  ** Write a function that nicely displays the board.
@@ -20,6 +16,10 @@ import "fmt"
  ** p p p p p p p p
  ** r n b q k r n b
 **/
+
+package main
+
+import "fmt"
 
 func chess() {
 
