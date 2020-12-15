@@ -66,3 +66,27 @@ func words(sentence string) map[string]int {
 
 	return mapOfWordsWithTheirCounts
 }
+
+// understandCommaOkaySyntax showcases Go's comma ok syntax that can be used with maps to distinguish between a key-value pair existing in a map.
+func understandCommaOkaySyntax() {
+
+	fruitBasket := make(map[string]int)
+	fruitBasket["oranges"] = 0
+
+	var numOfApples, numOfOranges int
+	var ok bool
+
+	// this code snipet shows the comma ok sytax in a simplified manner
+	numOfOranges, ok = fruitBasket["oranges"]
+	if ok {
+		fmt.Println("Number of Oranges: ", numOfOranges)
+	}
+
+	// this code snipet shows the same same comma ok syntax but with a combined if statment provided by Go for simplicity.
+	if numOfApples, ok = fruitBasket["apples"]; ok {
+		fmt.Println("Number of Apples: ", numOfApples)
+	} else {
+		fmt.Println("There were no apples in the basket")
+	}
+
+}
