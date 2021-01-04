@@ -14,15 +14,15 @@ func thePrinter() {
 	}
 	fmt.Printf("\n")
 
-	fmt.Println("Printf with %x:")
+	fmt.Println("Printf with % x:")
 	fmt.Printf("%x\n", sample)
 
 	fmt.Println("Printf with % x:")
 	fmt.Printf("% x\n", sample)
 
-	fmt.Println("Printf with %q:")
+	fmt.Println("Printf with % q:")
 	fmt.Printf("%q\n", sample)
 
-	fmt.Println("Printf with %+q:")
+	fmt.Println("Printf with % +q:")
 	fmt.Printf("%+q\n", sample)
 }
