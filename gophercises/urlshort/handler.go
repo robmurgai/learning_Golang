@@ -12,60 +12,32 @@ import (
 // If the path is not provided in the map, then the fallback
 // http.Handler will be called instead.
 func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.HandlerFunc {
-	//	TODO: Implement this...
-	fmt.Printf("DEBUG: MapHandler(): \n")
 
-	fmt.Printf("DEBUG: MapHandler(): Mapping \"/\" to handler func notFoundHF()\n")
-	http.HandleFunc("/", notFoundHF)
+	fmt.Printf("DEBUG: MapHandler(): Creating a Handler Function.\n")
 
-	fmt.Printf("DEBUG: MapHandler(): Mapping \"/google\" to handler func googleHF()\n")
-	http.HandleFunc("/google", googleHF)
+	tmpHandler := func(resp http.ResponseWriter, reqPtr *http.Request) {
 
-	//Map all URL values to tmpHF
-	for key := range pathsToUrls {
+		receivedURL := reqPtr.URL.Path
+		fmt.Printf("DEBUG: tmpHandler(): reqPtr.URL.Path: %q\n", reqPtr.URL.Path)
 
-		switch key {
-		case "/urlshort-godoc":
-			fmt.Printf("DEBUG: MapHandler(): Mapping %q to handler func urlHF()\n", key)
-			http.HandleFunc(key, urlHF)
-		default:
-			fmt.Printf("DEBUG: MapHandler(): Mapping %q to handler func tmpHF()\n", key)
-			http.HandleFunc(key, notFoundHF)
+		// if the recieved path is in pathsToUrls, redirect the server from key URL to Value URL
+		if value, ok := pathsToUrls[receivedURL]; ok {
+			redirectURL := value
+			fmt.Printf("DEBUG: tmpHandler(): Redirecting: %q to %q\n", receivedURL, redirectURL)
+			http.Redirect(resp, reqPtr, redirectURL, http.StatusFound)
+
+		} else if receivedURL == "/google" { // Redirect to Google.com for fun
+			redirectURL := "https://www.google.com"
+			fmt.Printf("DEBUG: tmpHandler(): Redirecting for fun: %q to %q\n", receivedURL, redirectURL)
+			http.Redirect(resp, reqPtr, redirectURL, http.StatusFound)
+		} else { // if the URL is not in PathsToURL[] return the fallback handler func
+			fmt.Printf("DEBUG: tmpHandler(): Falling back to the fallback() function.\n")
+			fallback.ServeHTTP(resp, reqPtr)
 		}
 
 	}
 
-	return nil
-}
-
-func notFoundHF(resp http.ResponseWriter, reqPtr *http.Request) {
-
-	fmt.Printf("DEBUG: notFoundHF() reqPtr.URL.Path: %v\n", reqPtr.URL.Path)
-
-	// populate the resp
-	fmt.Fprintf(resp, "Hello, We are not set up to handle this URL: %q\n", reqPtr.URL.Path)
-}
-
-func urlHF(resp http.ResponseWriter, reqPtr *http.Request) {
-
-	receivedURL := reqPtr.URL
-	redirectURL := "https://godoc.org/github.com/gophercises/urlshort"
-
-	fmt.Printf("Received URL: %v\n", receivedURL)
-
-	fmt.Printf("DEBUG: urlHF(): Redirecting: %q to %q\n", receivedURL, redirectURL)
-	http.Redirect(resp, reqPtr, redirectURL, http.StatusFound)
-}
-
-func googleHF(resp http.ResponseWriter, reqPtr *http.Request) {
-
-	receivedURL := reqPtr.URL
-	redirectURL := "https://www.google.com"
-
-	fmt.Printf("Received URL: %v\n", receivedURL)
-
-	fmt.Printf("DEBUG: googleHF(): Redirecting: %q to %q\n", receivedURL, redirectURL)
-	http.Redirect(resp, reqPtr, redirectURL, http.StatusFound)
+	return tmpHandler
 }
 
 // YAMLHandler will parse the provided YAML and then return

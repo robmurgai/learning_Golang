@@ -1,6 +1,5 @@
 // Exercise #2: URL Shortener: https://github.com/gophercises/urlshort
 //
-// Exercise details
 // The goal of this exercise is to create an http.Handler that will look at the path of any incoming web request and determine if it should redirect
 // the user to a new page, much like URL shortener would.
 //
@@ -11,8 +10,26 @@
 // method should do, and there is also a main/main.go source file that uses the package to help you test your code and get an idea of what your
 // program should be doing.
 //
-// I suggest first commenting out all of the code in main.go related to the YAMLHandler function and focusing on implementing the MapHandler function
-// first.
+// I suggest first commenting out all of the code in main.go related to the YAMLHandler function and focusing on implementing the MapHandler
+// function.
+//
+// Once you have that working, focus on parsing the YAML using the gopkg.in/yaml.v2 package.
+// Note: You will need to 'go get' this package if you don’t have it already.
+
+// After you get the YAML parsing down, try to convert the data into a map and then use the MapHandler to finish the YAMLHandler implementation. Eg
+// you might end up with some code like this:
+
+// func YAMLHandler(yaml []byte, fallback http.Handler) (http.HandlerFunc, error) {
+//   parsedYaml, err := parseYAML(yaml)
+//   if err != nil {
+//     return nil, err
+//   }
+//   pathMap := buildMap(parsedYaml)
+//   return MapHandler(pathMap, fallback), nil
+// }
+//
+// But in order for this to work you will need to create functions like parseYAML and buildMap on your own. This should give you ample experience
+// working with YAML data.
 
 package main
 
@@ -34,11 +51,10 @@ func main() {
 		"/urlshort-godoc": "https://godoc.org/github.com/gophercises/urlshort",
 		"/yaml-godoc":     "https://godoc.org/gopkg.in/yaml.v2",
 	}
-	// mapHandler := urlshort.MapHandler(pathsToUrls, mux)
-	urlshort.MapHandler(pathsToUrls, mux)
+	mapHandler := urlshort.MapHandler(pathsToUrls, mux)
 
 	fmt.Println("Starting the server on :8080")
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", mapHandler)
 
 	// Build the YAMLHandler using the mapHandler as the fallback
 	// yaml := `
