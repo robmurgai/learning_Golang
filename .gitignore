@@ -1,2 +1,6 @@
 main
 methods
+**/db/
+**/mapDB 
+*.log
+*.bak
