@@ -23,7 +23,7 @@ func main() {
 
 	fmt.Printf("\n########## Starting Exercise ##########\n\n")
 
-	httpServer.Start()
+	httpServer.CustomStart()
 
 	fmt.Printf("\n########## Ending Exercise ##########\n")
 }
