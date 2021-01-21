@@ -1,4 +1,4 @@
-package main
+package hackerrank
 
 import (
 	//For Printing to the terminal

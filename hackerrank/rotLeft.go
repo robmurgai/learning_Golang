@@ -1,5 +1,5 @@
 // Complete the rotLeft function below.
-package main
+package hackerrank
 
 import "fmt"
 

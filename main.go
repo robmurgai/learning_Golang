@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	httpServer "./http_server"
+	hr "./hackerrank"
 )
 
 var debugLog *log.Logger
@@ -23,7 +23,20 @@ func main() {
 
 	fmt.Printf("\n########## Starting Exercise ##########\n\n")
 
-	httpServer.CustomStart()
+	debugLog.Println("Get()")
+	hr.Get()
+
+	debugLog.Println("Post()")
+	hr.Post()
+
+	debugLog.Println("PostForm()")
+	hr.PostForm()
+
+	debugLog.Println("Put()")
+	hr.Put()
+
+	debugLog.Println("Delete")
+	hr.Delete()
 
 	fmt.Printf("\n########## Ending Exercise ##########\n")
 }

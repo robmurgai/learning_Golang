@@ -1,6 +1,5 @@
 // Complete the minimumBribes function below.
-
-package main
+package hackerrank
 
 import "fmt"
 
