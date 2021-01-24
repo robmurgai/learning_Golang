@@ -23,20 +23,14 @@ func main() {
 
 	fmt.Printf("\n########## Starting Exercise ##########\n\n")
 
-	debugLog.Println("Get()")
-	hr.Get()
+	//arr := []int32{4, 3, 1, 2}
+	//arr := []int32{2, 3, 4, 1, 5}
+	//arr := []int32{1, 3, 5, 2, 4, 6, 7}
+	arr := []int32{7, 1, 2, 3, 4, 5, 6}
 
-	debugLog.Println("Post()")
-	hr.Post()
+	res := hr.MinimumSwaps1(arr)
 
-	debugLog.Println("PostForm()")
-	hr.PostForm()
-
-	debugLog.Println("Put()")
-	hr.Put()
-
-	debugLog.Println("Delete")
-	hr.Delete()
+	fmt.Printf("%d\n", res)
 
 	fmt.Printf("\n########## Ending Exercise ##########\n")
 }
