@@ -4,3 +4,4 @@ methods
 **/mapDB 
 *.log
 *.bak
+*.mod
