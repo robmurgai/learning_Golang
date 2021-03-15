@@ -5,3 +5,4 @@ methods
 *.log
 *.bak
 *.mod
+**/.vscode
