@@ -8,9 +8,9 @@ import (
 
 func main() {
 
-	fmt.Printf("\n########## Starting Exercise ##########\n\n")
+	fmt.Printf("\n########### Starting Exercise ##########\n\n")
 
 	pf.LetsMarvel()
 
-	fmt.Printf("\n########## Ending Exercise ##########\n")
+	fmt.Printf("\n########### Ending Exercise ##########\n")
 }
