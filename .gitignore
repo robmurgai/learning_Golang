@@ -4,6 +4,5 @@ methods
 **/mapDB 
 *.log
 *.bak
-*.mod
 **/config/
 **/.vscode
