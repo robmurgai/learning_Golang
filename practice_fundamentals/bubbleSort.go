@@ -14,19 +14,41 @@ import "fmt"
 // that's just checking to see if anything was swapped. That would be make it O(n²). Not efficient, but a great learning tool.
 // You'll never use bubble sort for anything serious.
 
-// Expected [ 10, 5, 3, 8, 2, 6, 4, 7, 9, 1 ] to equal [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+/**
+To run BubbleSort, update main.go
 
-func bubbleSort(myList []int) {
+package main
+
+import (
+	pf "github.com/robmurgai/learning_Golang/practice_fundamentals"
+)
+
+func main() {
+	myList := []int{10, 5, 3, 8, 2, 6, 4, 7, 9, 1}
+	pf.BubbleSort(myList)
+}
+
+**/
+
+// BubbleSort() sorts an array and prints out the sorted array.
+// Expected input {10, 5, 3, 8, 2, 6, 4, 7, 9, 1} to equal {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+func BubbleSort(myList []int) {
 
 	keepGoing := true
-	bigO := 0
+	outerLoop := 1
+	innerLoop := 1
 
 	for keepGoing {
 		keepGoing = false
-		bigO++
 
+		fmt.Printf("Outer Loop (%v): %v\n", outerLoop, myList)
+		outerLoop++
+
+		innerLoop = 1
+		// Range from index 0 to 'last but 1' because we are comparing myList[index] with myList[index+1]
 		for index, value := range myList[:len(myList)-1] {
-			bigO++
+			fmt.Printf("  %v: %v\n", innerLoop, myList)
+			innerLoop++
 			if myList[index+1] < value {
 				myList[index] = myList[index+1]
 				myList[index+1] = value
@@ -36,6 +58,9 @@ func bubbleSort(myList []int) {
 
 	}
 
-	fmt.Printf("n: %v, BigO(n): %v\n", len(myList), bigO)
+	outerLoop--
+
+	//fmt.Printf("OuterLoop: %v and innerLoop: %v\n", outerLoop, innerLoop)
+	fmt.Printf("BubbleSort for n:%v is BigO(n^2): %v\n", len(myList), outerLoop*innerLoop)
 
 }
