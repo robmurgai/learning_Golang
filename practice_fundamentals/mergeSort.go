@@ -47,6 +47,7 @@ func mergeSort(myList []int) {
 
 func mergeLists(leftList []int, rightList []int) []int {
 
+	bigO := 0
 	fmt.Printf("\nMerge these two lists: %v & %v\n", leftList, rightList)
 
 	mergedList := make([]int, 0, len(leftList)+len(rightList))
